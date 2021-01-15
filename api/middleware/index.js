@@ -17,7 +17,7 @@ async function validateActionsId(req, res, next) {
   }
 }
 
-async function validateProjectsId(req, res, next) {
+async function validateProjectId(req, res, next) {
   try {
     const project = await Projects.get(req.params.id);
     if (project) {
@@ -72,7 +72,7 @@ function validateProject(req, res, next) {
 
 module.exports = {
   validateActionsId,
-  validateProjectsId,
+  validateProjectId,
   validateAction,
   validateProject,
 };
