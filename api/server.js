@@ -1,7 +1,19 @@
-const express = require('express');
+const express = require("express");
+
+const actionsRouter = require("./actions/actions-router.js");
+const projectsRouter = require("./projects/projects-router.js");
+
 const server = express();
 
-// Complete your server here!
-// Do NOT `server.listen()` inside this file!
+server.use(express.json());
 
+server.use("/api/actions", actionsRouter);
+server.use("/api/projects", projectsRouter);
+
+server.get("/", (req, res) => {
+  res.send(`
+            <h2> Our Api is Up and Running</h2>
+            <p> Please refer to the READ ME for more information</p>
+         `);
+});
 module.exports = server;
